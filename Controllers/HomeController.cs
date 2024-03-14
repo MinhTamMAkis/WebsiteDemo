@@ -1,21 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebsiteDemo.Models;
+using WebsiteDemo.Repository;
 
 namespace WebsiteDemo.Controllers
 {
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-
-		public HomeController(ILogger<HomeController> logger)
+		private readonly Datacontext _datacontext;
+		public HomeController(ILogger<HomeController> logger, Datacontext datacontext)
 		{
 			_logger = logger;
+			_datacontext = datacontext;
 		}
 
 		public IActionResult Index()
 		{
-			return View();
+			var products = _datacontext.Musics.ToList();
+			return View(products);
 		}
 
 		public IActionResult Privacy()

@@ -1,11 +1,16 @@
-﻿@{
+﻿@model IEnumerable<MusicModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="justify-content-center home">
     <h1 class="display-4">WELCOME</h1>
     <div>
-
+        @foreach (var item in Model)
+        {
+            <div>@item.Name</div>
+        }
     </div>
 </div>
 

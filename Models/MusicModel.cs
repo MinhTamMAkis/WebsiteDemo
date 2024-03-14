@@ -8,5 +8,7 @@ namespace WebsiteDemo.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Slug { get; set; }
+        public string Singer { get; set; }
+        public string Image {  get; set; }
     }
 }
