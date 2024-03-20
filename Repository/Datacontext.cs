@@ -10,5 +10,6 @@ namespace WebsiteDemo.Repository
 
         }
             public DbSet<MusicModel> Musics { get; set; }
+            public DbSet<IdolModel> Idols { get; set; }
     }
 }

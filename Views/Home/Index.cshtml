@@ -6,11 +6,38 @@
 
 <div class="justify-content-center home">
     <h1 class="display-4">WELCOME</h1>
-    <div>
-        @foreach (var item in Model)
-        {
-            <div>@item.Name</div>
-        }
+    <div class="view-home">
+        <div class="row gap-2">
+            <!--MUSIC-->
+            <div class="col justify-content-center d-flex">
+                <div class=" data-show">
+                    <div class="title">Music</div>
+                    <div class="count-category">
+                        <p>HAVE</p>
+                        <p>@ViewBag.MusicsCount</p>
+                    </div>
+                </div>
+            </div>
+            <!--IDOL-->
+            <div class="col justify-content-center d-flex">
+                <div class=" data-show">
+                    <div class="title">IDOL</div>
+                    <div class="count-category">
+                        <p>HAVE</p>
+                        <p>@ViewBag.IdolsCount</p>
+                    </div>
+                </div>
+            </div>
+            <!--PROJECT-->
+            <div class="col justify-content-center d-flex">
+                <div class=" data-show">
+                    <div class="title">Project</div>
+                    <div class="count-category">
+                        <p>HAVE</p>
+                        <p>6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-

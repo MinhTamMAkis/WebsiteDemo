@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using WebsiteDemo.Models;
 using WebsiteDemo.Repository;
@@ -17,11 +18,17 @@ namespace WebsiteDemo.Controllers
 
 		public IActionResult Index()
 		{
-			var products = _datacontext.Musics.ToList();
-			return View(products);
+
+			var musics = _datacontext.Musics.Include("Idol").ToList();
+            var musicsCount = musics.Count; 
+            ViewBag.MusicsCount = musicsCount;
+			var Idols = _datacontext.Idols.ToList();
+            var IdolsCount = Idols.Count;
+            ViewBag.IdolsCount = IdolsCount;
+            return View(musics);
 		}
 
-		public IActionResult Privacy()
+		public IActionResult Idol()
 		{
 			return View();
 		}

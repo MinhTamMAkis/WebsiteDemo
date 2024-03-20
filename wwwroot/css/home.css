@@ -1,0 +1,73 @@
+﻿.data-show {
+    height: 300px;
+    width: 300px;
+    border: solid 1px black;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, rgba(35, 35, 35, 1), rgba(167, 168, 162, 1));
+    color: #FFFFFF;
+}
+
+    .data-show::after {
+        content: '';
+        position: absolute;
+        bottom: -30px;
+        left: -1px;
+        width: 105%;
+        height: 100%;
+        filter: grayscale(70%);
+        background-image: url('../imgas/forest.png');
+        background-repeat: no-repeat; 
+        background-size: cover;
+    }
+
+    .data-show .title {
+        font-family: "Protest Guerrilla", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2rem;
+    }
+
+    .data-show .count-category {
+        margin-top: 50px;
+    }
+
+        .data-show .count-category p {
+            margin: 0;
+            font-family: "Madimi One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.5rem;
+        }
+
+@media (max-width:1024px) {
+    .data-show {
+        height: 250px;
+        width: 250px;
+    }
+
+        .data-show::after {
+            bottom: -25px;
+        }
+}
+
+@media (max-width:568px) {
+    .data-show {
+        height: 150px;
+        width: 150px;
+    }
+
+        .data-show::after {
+            bottom: -15px;
+        }
+
+        .data-show .count-category {
+            margin-top: 10px;
+        }
+
+        .data-show .title {
+            font-size: 1.5rem;
+        }
+}

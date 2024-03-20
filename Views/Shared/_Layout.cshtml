@@ -6,10 +6,13 @@
     <title>@ViewData["Title"] - WebsiteDemo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Fog.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/music.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebsiteDemo.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/body.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <header>
@@ -87,9 +90,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Idol">
                                 <button class="btn-nav">
-                                    Privacy
+                                    Idol
                                     <div class="icon-1">
                                         <svg xmlns:xlink="http://www.w3.org/1999/xlink"
                                              viewBox="0 0 26.3 65.33"
@@ -214,8 +217,50 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/fog.js"></script>
+    <script src="~/js/music_play.js"></script>
+    <script src="~/js/slider-swiper.js"></script>
+    <script type="module">
+        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
 
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            slidesPerView: 1,
+            breakpoints: {
+                1440: {
+                    slidesPerView: 5,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                }
+
+            },
+            spaceBetween: 10,
+
+            direction: 'horizontal',
+            loop: true,
+            mousewheel: {
+                releaseOnEdges: true,
+            },
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+
+        })
+    </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
