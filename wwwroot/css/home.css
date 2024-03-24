@@ -42,22 +42,30 @@
             font-size: 1.5rem;
         }
 
+.repon-phone {
+    display:flex;
+}
 @media (max-width:1024px) {
     .data-show {
         height: 250px;
         width: 250px;
     }
 
-        .data-show::after {
+    .data-show::after {
             bottom: -25px;
-        }
+     }
+
+    .music {
+        display: block !important;
+    }
 }
 
+
 @media (max-width:568px) {
-    .data-show {
-        height: 150px;
-        width: 150px;
-    }
+        .data-show {
+            height: 150px;
+            width: 150px;
+        }
 
         .data-show::after {
             bottom: -15px;
@@ -70,4 +78,17 @@
         .data-show .title {
             font-size: 1.5rem;
         }
+        .music-title{
+            width:110px;
+        }
+        
+}
+@media (max-width:768px) {
+    .timer {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .repon-phone {
+        display: block !important;
+    }
 }

@@ -35,7 +35,7 @@ h1 {
     z-index: -1;
     left: 0;
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -60,6 +60,7 @@ h1 {
     background-size: contain;
     background-position: center;
     animation: marquee 60s linear infinite;
+    height:100%;
 }
 
 .fog-img-second {
@@ -68,6 +69,7 @@ h1 {
     background-size: contain;
     background-position: center;
     animation: marquee 30s linear infinite;
+    height: 100%;
 }
 
 @keyframes marquee {

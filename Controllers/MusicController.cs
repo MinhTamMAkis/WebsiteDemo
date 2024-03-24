@@ -25,7 +25,8 @@ namespace WebsiteDemo.Controllers
             ViewBag.IdolsCount = IdolsCount;
 
 
-            var getName = _datacontext.Idols.ToList();
+            var getID = _datacontext.Musics.Select(m => m.Id).ToList();
+            ViewBag.GetID = getID;
             var musicNames = _datacontext.Musics.Select(m => m.Name).ToList();
             ViewBag.MusicNames = musicNames;
             return View(musics);

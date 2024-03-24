@@ -12,6 +12,8 @@ const musicThumb = document.querySelector(".music-thumb");
 const musicImage = document.querySelector(".music-thumb img");
 const playRepeat = document.querySelector(".play-repeat")
 const playRandomBtn = document.querySelector(".play-infi")
+const musicImages = document.querySelectorAll(".music-image");
+const rangevolume = document.getElementById('volume');
 
 
 
@@ -171,6 +173,29 @@ function handleChangeBar() {
     song.currentTime = rangeBar.value;
 }
 
+// tang giam am luong
+rangevolume.addEventListener("input", handleChangeVolume);
+function handleChangeVolume() {
+    song.volume = rangevolume.value / 10;
+
+}
+
+musicImages.forEach(function (image) {
+    image.addEventListener("click", function () {
+
+            // Get the song ID from the data attribute
+            const songId = parseInt(image.dataset.songId);
+
+            // Find the index of the song with the corresponding ID
+            const index = musics.findIndex(song => song.id === songId);
+            console.log(songId);
+
+            // If a song with the corresponding ID is found, change to that song
+
+        
+    });
+});
+
 function init(indexSong) {
 
     song.setAttribute("src", `./music/${musics[indexSong].file}`);
@@ -182,6 +207,12 @@ function init(indexSong) {
 
 displayTimer();
 init(indexSong);
+
+document.getElementById("volume").oninput = function () {
+    var value = (this.value - this.min) / (this.max - this.min) * 100
+    this.style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' + value + '%, #fff ' + value + '%, white 100%)'
+};
+
 
 document.getElementById("range").oninput = function () {
     var value = (this.value - this.min) / (this.max - this.min) * 100
