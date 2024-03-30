@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebsiteDemo</title>
+    <title>@ViewData["Title"] - Admin </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/music.css" asp-append-version="true" />
@@ -36,48 +36,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/music_play.js"></script>
     <script src="~/js/slider-swiper.js"></script>
-    <script type="module">
-        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
-
-        const swiper = new Swiper('.swiper', {
-            // Optional parameters
-            slidesPerView: 1,
-            breakpoints: {
-                1440: {
-                    slidesPerView: 5,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                }
-
-            },
-            spaceBetween: 10,
-
-            direction: 'horizontal',
-            loop: true,
-            mousewheel: {
-                releaseOnEdges: true,
-            },
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-            },
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
-
-        })
-    </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

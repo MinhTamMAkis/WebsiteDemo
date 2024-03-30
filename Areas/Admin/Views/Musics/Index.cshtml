@@ -1,2 +1,41 @@
-﻿
-<h3>List Music</h3>
+﻿@model IEnumerable<MusicModel>
+@{
+    ViewData["Title"] = "Music";
+}
+<div class="d-flex gap-1 align-items-center">
+    <h3>List Music</h3>
+    <a asp-area="Admin" asp-action="Add" asp-controller="Musics">Add</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Singer</th>
+            <th scope="col">Image</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var count = 0;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(count + 1)</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Idol.Name</td>
+                <td><img src="~/Imgae_Musics/@item.Image" alt="@item.Name" style="width:50px;height:50px" /></td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Musics" asp-route-Id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-controller="Musics" asp-route-Id="@item.Id">Delete</a>
+                </td>
+            </tr>
+            count++;
+        }
+    </tbody>
+</table>

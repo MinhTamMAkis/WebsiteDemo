@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using WebsiteDemo.Models;
 using WebsiteDemo.Repository;
 
 namespace WebsiteDemo.Areas.Admin.Controllers
@@ -14,10 +16,22 @@ namespace WebsiteDemo.Areas.Admin.Controllers
 
             _datacontext = datacontext;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            
+            var musics = _datacontext.Musics.Include("Idol").ToList();
+            return View(await _datacontext.Musics.OrderByDescending(p => p.Id).Include(p => p.Idol).ToListAsync());
+        }
+        [HttpGet]
+        public IActionResult Add()
+        {
+            ViewBag.Idols = new SelectList(_datacontext.Idols, "Id", "Name");
             return View();
+        }
+        public async Task<IActionResult> Add(MusicModel music)
+        {
+            ViewBag.Idols = new SelectList(_datacontext.Idols, "Id", "Name", music.IdolId);
+            return View(music);
+
         }
 
     }

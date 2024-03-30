@@ -25,6 +25,7 @@ namespace WebsiteDemo.Controllers
 			var Idols = _datacontext.Idols.ToList();
             var IdolsCount = Idols.Count;
             ViewBag.IdolsCount = IdolsCount;
+
             return View(musics);
 		}
 
