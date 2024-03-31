@@ -11,18 +11,12 @@ namespace WebsiteDemo.Models
         [Required(ErrorMessage = "Please enter music name")]
         public string Name { get; set; }
         public string Slug { get; set; }
-
-        [Required(ErrorMessage = "Please insert the file")]
         public string File { get; set; }
-
-        [Required(ErrorMessage = "Please insert the file")]
-
         public string Image { get; set; }
-        [Required(ErrorMessage = "Please insert the file")]
-
+        [Required,Range(1,int.MaxValue,ErrorMessage ="Please choose one singer")]
         public int IdolId { get; set; }
-
         public IdolModel Idol{ get; set; }
+
         [NotMapped]
         [FileExtension]
         public IFormFile ImageUpload { get; set; }
