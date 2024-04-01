@@ -21,7 +21,7 @@ namespace WebsiteDemo.Models
         [FileExtension]
         public IFormFile ImageUpload { get; set; }
         [NotMapped]
-        [FileExtension]
+        [FileExtensionMp3]
         public IFormFile Mp3Upload { get; set; }
     }
 }

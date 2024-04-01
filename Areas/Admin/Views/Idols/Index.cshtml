@@ -1,0 +1,38 @@
+﻿@model IEnumerable<IdolModel>
+@{
+    ViewData["Title"] = "Idols";
+}
+<div class="d-flex gap-1 align-items-center">
+    <h3>List Idol</h3>
+    <a asp-area="Admin" asp-action="Add" asp-controller="Idols">Add</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var count = 0;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(count + 1)</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Idols" asp-route-Id="@item.Id">Edit</a>
+                    <a asp-action="Delete" asp-controller="Idols" asp-route-Id="@item.Id">Delete</a>
+                </td>
+            </tr>
+            count++;
+        }
+    </tbody>
+</table>

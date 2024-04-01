@@ -9,7 +9,7 @@ namespace WebsiteDemo.Repository.Validation
             if (value is IFormFile file)
             { 
                 var extension = Path.GetExtension(file.FileName);
-                string[] extensions = { "jpg", "png", "jpeg", "webp", "mp3" };
+                string[] extensions = { "jpg", "png", "jpeg", "webp" };
                 bool result = extensions.Any(x => extension.EndsWith(x));
                 if (!result)
                 {
